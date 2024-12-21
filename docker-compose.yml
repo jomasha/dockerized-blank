@@ -1,7 +1,11 @@
+networks:
+  netware:
+    external: true
+
 services:
   nginx:
     image: nginx:1.25.1-alpine
-    container_name: nginx_coming_soon
+    container_name: nginx_blank
     labels:
       maintainer: "Arash Hatami <hatamiarash7@gmail.com>"
       org.opencontainers.image.created: ${DATE_CREATED}
@@ -19,3 +23,5 @@ services:
     command: ["nginx", "-g", "daemon off;"]
     env_file:
       - .env
+    networks:
+      - netware
